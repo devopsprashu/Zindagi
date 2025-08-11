@@ -5,6 +5,13 @@ terraform {
       version = "4.39.0"
     }
   }
+
+  backend "azurerm" {
+    resource_group_name   = "hope-rg"
+    storage_account_name  = "hopestg" # must be globally unique & lowercase
+    container_name        = "hopecontainer"
+    key                   = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
